@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<fmt:setLocale value="${sessionScope.lang}" />
+<fmt:setBundle basename="pagecontent"/>
 <html xmlns="http://www.w3.org/1999/html">
 <head>
     <title >Developer</title>
@@ -26,12 +29,20 @@
             <a href="/?lang=en" >Ukraine</a>
             &nbsp;&nbsp;
 
-            <div style="text-align: right;padding:5px;margin:5px 0px;" >
-                <a  href="/login" class="btn btn-primary">Login</a>
-            </div>
-            <div style="text-align: right;padding:5px;margin:5px 0px;">
-                <a href="/logout" >logout</a>
-            </div>
+            <c:choose>
+                <c:when test="${role!='NULL'}">
+                    <div style="text-align: right;padding:5px;margin:5px 0px;" >
+                        <a  href="/login" class="btn btn-primary"><fmt:message key="label.Login"/></a>
+                    </div>
+                </c:when>
+            </c:choose>
+            <c:choose>
+                <c:when test="${role=='NULL'}">
+                    <div style="text-align: right;padding:5px;margin:5px 0px;" >
+                        <a href="/logout"  ><fmt:message key="label.Logout"/></a>
+                    </div>
+                </c:when>
+            </c:choose>
         </form>
         </form>
     </div>

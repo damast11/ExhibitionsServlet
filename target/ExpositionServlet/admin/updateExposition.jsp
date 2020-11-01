@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-      xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<fmt:setLocale value="${sessionScope.lang}" />
+<fmt:setBundle basename="pagecontent"/>
 <head>
     <meta charset="ISO-8859-1">
     <title >Update Exposition</title>
@@ -23,12 +26,20 @@
             <a href="/?lang=en">English</a>
             &nbsp;&nbsp;
 
-            <div style="text-align: right;padding:5px;margin:5px 0px;" >
-                <a  href="${pageContext.request.contextPath}/login" class="btn btn-primary" >Login</a>
-            </div>
-            <div style="text-align: right;padding:5px;margin:5px 0px;" >
-                <a href="${pageContext.request.contextPath}/logout" >logout</a>
-            </div>
+            <c:choose>
+                <c:when test="${role!='NULL'}">
+                    <div style="text-align: right;padding:5px;margin:5px 0px;" >
+                        <a  href="/login" class="btn btn-primary"><fmt:message key="label.Login"/></a>
+                    </div>
+                </c:when>
+            </c:choose>
+            <c:choose>
+                <c:when test="${role=='NULL'}">
+                    <div style="text-align: right;padding:5px;margin:5px 0px;" >
+                        <a href="/logout"  ><fmt:message key="label.Logout"/></a>
+                    </div>
+                </c:when>
+            </c:choose>
         </form>
     </div>
 </nav>

@@ -13,9 +13,7 @@
 </head>
 
 <body>
-<%
-    response.setHeader("Cache-Control","no-store");
-%>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/"><fmt:message key="label.Expositions"/></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -36,12 +34,20 @@
             &nbsp
             <a href="?sessionLocale=uk"><fmt:message key="label.Ukraine"/></a>
             &nbsp
-            <div style="text-align: right;padding:5px;margin:5px 0px;">
-                <a href="/login" class="btn btn-primary"><fmt:message key="label.Login"/></a>
-            </div>
-            <div style="text-align: right;padding:5px;margin:5px 0px;">
-                <a href="/logout"><fmt:message key="label.Logout"/></a>
-            </div>
+<%--            <c:choose>--%>
+<%--                <c:when test="${role!='NULL'}">--%>
+                    <div style="text-align: right;padding:5px;margin:5px 0px;" >
+                        <a  href="/login" class="btn btn-primary"><fmt:message key="label.Login"/></a>
+                    </div>
+<%--                </c:when>--%>
+<%--            </c:choose>--%>
+<%--            <c:choose>--%>
+<%--                <c:when test="${role=='NULL'}">--%>
+                    <div style="text-align: right;padding:5px;margin:5px 0px;" >
+                        <a href="/logout"  ><fmt:message key="label.Logout"/></a>
+                    </div>
+<%--                </c:when>--%>
+<%--            </c:choose>--%>
         </form>
     </div>
 </nav>

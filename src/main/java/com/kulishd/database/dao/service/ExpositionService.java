@@ -189,6 +189,7 @@ public class ExpositionService implements ExpositionDAO {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
             logger.info("Ticket bought ");
+            return true;
         } catch (SQLException throwables) {
             logger.log(Level.SEVERE ,"SQL Exception in method findExpositionById");
             throwables.printStackTrace();

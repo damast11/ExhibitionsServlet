@@ -3,9 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <fmt:setLocale value="${sessionScope.lang}" />
 <fmt:setBundle basename="pagecontent"/>
-<%
-    response.setHeader("Cache-Control", "no-store");
-%>
+
 <html lang="${sessionScope.lang}" >
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -31,20 +29,20 @@
             &nbsp;&nbsp
             <a href="?sessionLocale=uk" ><fmt:message key="label.Ukraine"/></a>
             &nbsp;&nbsp
-<c:choose>
-    <c:when test="${role!='NULL'}">
+<%--<c:choose>--%>
+<%--    <c:when test="${role!='NULL'}">--%>
             <div style="text-align: right;padding:5px;margin:5px 0px;" >
                 <a  href="/login" class="btn btn-primary"><fmt:message key="label.Login"/></a>
             </div>
-    </c:when>
-</c:choose>
-<c:choose>
-    <c:when test="${role=='NULL'}">
+<%--    </c:when>--%>
+<%--</c:choose>--%>
+<%--<c:choose>--%>
+<%--    <c:when test="${role=='NULL'}">--%>
             <div style="text-align: right;padding:5px;margin:5px 0px;" >
                 <a href="/logout"  ><fmt:message key="label.Logout"/></a>
             </div>
-    </c:when>
-</c:choose>
+<%--    </c:when>--%>
+<%--</c:choose>--%>
         </form>
     </div>
 </nav>
