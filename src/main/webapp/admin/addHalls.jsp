@@ -28,21 +28,13 @@
             <a href="/?lang=en" >English</a>
             <a href="/?lang=en" >Ukraine</a>
             &nbsp;&nbsp;
-
-            <c:choose>
-                <c:when test="${role!='NULL'}">
                     <div style="text-align: right;padding:5px;margin:5px 0px;" >
                         <a  href="/login" class="btn btn-primary"><fmt:message key="label.Login"/></a>
                     </div>
-                </c:when>
-            </c:choose>
-            <c:choose>
-                <c:when test="${role=='NULL'}">
+
                     <div style="text-align: right;padding:5px;margin:5px 0px;" >
                         <a href="/logout"  ><fmt:message key="label.Logout"/></a>
                     </div>
-                </c:when>
-            </c:choose>
         </form>
         </form>
     </div>

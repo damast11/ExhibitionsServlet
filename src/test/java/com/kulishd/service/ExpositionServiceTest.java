@@ -19,7 +19,7 @@ public class ExpositionServiceTest {
     private ExpositionService expositionService;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp()  {
         expositionService = new ExpositionService();
     }
 
